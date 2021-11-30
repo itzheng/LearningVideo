@@ -17,11 +17,19 @@ import android.content.Context
 @SuppressLint("StaticFieldLeak")
 var CONTEXT: Context? = null
 
-class MainApp: Application() {
-
-
+class MainApp : Application() {
     override fun onCreate() {
         super.onCreate()
         CONTEXT = this
+    }
+
+    companion object {
+        public fun getFilePath(): String {
+            return CONTEXT!!.cacheDir.absolutePath + "/mvtest.mp4"
+        }
+
+        public fun getFilePath2(): String {
+            return CONTEXT!!.cacheDir.absolutePath + "/mvtest_2.mp4"
+        }
     }
 }

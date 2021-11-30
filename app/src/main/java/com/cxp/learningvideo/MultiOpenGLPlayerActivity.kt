@@ -22,9 +22,12 @@ import java.util.concurrent.Executors
  * @Datetime 2019-10-26 21:07
  *
  */
-class MultiOpenGLPlayerActivity: AppCompatActivity() {
-    private val path = Environment.getExternalStorageDirectory().absolutePath + "/mvtest_2.mp4"
-    private val path2 = Environment.getExternalStorageDirectory().absolutePath + "/mvtest.mp4"
+class MultiOpenGLPlayerActivity : AppCompatActivity() {
+    //    private val path = Environment.getExternalStorageDirectory().absolutePath + "/mvtest_2.mp4"
+    private val path = MainApp.getFilePath2()
+
+    //    private val path2 = Environment.getExternalStorageDirectory().absolutePath + "/mvtest.mp4"
+    private val path2 = MainApp.getFilePath()
 
     private val render = SimpleRender()
 

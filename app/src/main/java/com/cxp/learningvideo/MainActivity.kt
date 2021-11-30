@@ -3,16 +3,54 @@ package com.cxp.learningvideo
 import android.content.Intent
 import android.os.Bundle
 import android.support.v7.app.AppCompatActivity
+import android.util.Log
 import android.view.View
 import android.widget.Toast
+import com.cxp.learningvideo.utils.CopyFileUtils
 import com.yanzhenjie.permission.AndPermission
 import com.yanzhenjie.permission.Permission
+import java.io.File
+import java.io.IOException
 
 class MainActivity : AppCompatActivity() {
+    val TAG = "MainActivity"
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
         requestPermission()
+        copyTestMp4()
+        copyTest2Mp4()
+    }
+
+    private fun copyTest2Mp4() {
+        val fileName = "mvtest.mp4"
+        val file = File(cacheDir.absolutePath, "mvtest_2.mp4")
+        Log.w(TAG, "copy file start ..")
+        if (!file.exists()) {
+            try {
+                Log.w(TAG, "copy file: ")
+                CopyFileUtils.copyFile(assets.open(fileName), file)
+            } catch (e: IOException) {
+                e.printStackTrace()
+                return
+            }
+        }
+
+    }
+
+    private fun copyTestMp4() {
+        val fileName = "mvtest.mp4"
+        val file = File(cacheDir.absolutePath, fileName)
+        Log.w(TAG, "copy file start ..")
+        if (!file.exists()) {
+            try {
+                Log.w(TAG, "copy file: ")
+                CopyFileUtils.copyFile(assets.open(fileName), file)
+            } catch (e: IOException) {
+                e.printStackTrace()
+                return
+            }
+        }
     }
 
     private fun requestPermission() {

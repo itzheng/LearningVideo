@@ -18,12 +18,14 @@ import kotlin.concurrent.thread
  * @Datetime 2020-08-02 14:27
  *
  */
-class FFEncodeActivity: AppCompatActivity() {
+class FFEncodeActivity : AppCompatActivity() {
 
     private var ffEncoder: Int = -1
 
-    private val srcPath = Environment.getExternalStorageDirectory().absolutePath + "/mvtest2.mp4"
-    private val destPath = Environment.getExternalStorageDirectory().absolutePath + "/mvtest_en_out.mp4"
+    //    private val srcPath = Environment.getExternalStorageDirectory().absolutePath + "/mvtest2.mp4"
+    private val srcPath = MainApp.getFilePath2()
+    private val destPath =
+        Environment.getExternalStorageDirectory().absolutePath + "/mvtest_en_out.mp4"
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
